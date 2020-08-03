@@ -24,7 +24,7 @@ public class BowlingGameTest {
 
     @Test
     void should_return_all_score_when_throw_given_correct_input() {
-        assertEquals(100, new BowlingGame().convert("1,9,2,8,3,7,10,2,8,5,5,5,5,5,5,5,5,5,4"));
+        assertEquals(99, new BowlingGame().convert("1,9,2,8,3,7,10,2,8,5,5,5,5,5,5,5,5,5,4"));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class BowlingGameTest {
             new BowlingGame().convert("1,9,2,8,3,7,10,2,8,5,5,5,5,5,5,5,5,10,5,6");
         });
         assertThrows(RuntimeException.class, () -> {
-            new BowlingGame().convert("1,9,2,8,3,7,10,2,8,5,5,5,5,5,5,5,5,10,6");
+            new BowlingGame().convert("1,9,2,8,3,7,10,2,8,5,5,5,5,5,5,5,5,10,6,11");
         });
     }
 }

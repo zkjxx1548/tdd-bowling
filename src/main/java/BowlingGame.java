@@ -31,7 +31,6 @@ public class BowlingGame {
             throw new ErrorInputException();
         }
 
-        System.out.println(frameScores);
         int frameCount = frameScores.size();
         if (frameCount == 10) {
             return getLineScore(frameScores);
