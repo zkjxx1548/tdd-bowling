@@ -11,6 +11,9 @@ public class BowlingGame {
 
         for (int i = 0; i < scores.length; i++) {
             int score = Integer.parseInt(scores[i]);
+            if (i == scores.length - 1) {
+                frameScores.add(Integer.parseInt(scores[i]));
+            }
             int everFrameScore = 0;
             if (score < 10 && score >= 0) {
                 everFrameScore = Integer.parseInt(scores[i]) + Integer.parseInt(scores[i + 1]);
@@ -27,7 +30,18 @@ public class BowlingGame {
             }
             throw new ErrorInputException();
         }
-        return getLineScore(frameScores);
+
+        System.out.println(frameScores);
+        int frameCount = frameScores.size();
+        if (frameCount == 10) {
+            return getLineScore(frameScores);
+        }
+        int tenthFrameScore = frameScores.get(9);
+        if (frameCount == 11 && tenthFrameScore == 10) {
+            return getLineScore(frameScores);
+        }
+
+        throw new ErrorInputException();
     }
 
     public int getLineScore(List<Integer> frameScores) {
